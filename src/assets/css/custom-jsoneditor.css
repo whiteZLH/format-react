@@ -1,0 +1,60 @@
+/* 修改字体大小 */
+.jsoneditor {
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-width: 1px;
+  border-radius: 0.3rem;
+  overflow: visible;
+  padding: 2px;
+}
+
+/* 改变树形视图背景 */
+.jsoneditor-tree {
+  background-color: #f8f9fa;
+  font-size: 16px;
+  border-radius: 0.3rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.jsoneditor-treepath .jsoneditor-treepath-element {
+  font-size: 14px;
+}
+
+/* hover json 列表的颜色 */
+tr.jsoneditor-highlight {
+  background-color: transparent;
+}
+
+/* 选中节点的高亮颜色 */
+tr.jsoneditor-selected {
+  color: #fff !important;
+}
+
+/* 隐藏菜单栏 */
+/* .jsoneditor-menu {
+  display: none;
+} */
+
+.jsoneditor-navigation-bar.nav-bar-empty {
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.jsoneditor-outer.has-nav-bar {
+  background-color: #fff;
+}
+
+.jsoneditor-tree-inner .jsoneditor-tree {
+  background-color: #fff;
+}
+
+div.jsoneditor-field,
+div.jsoneditor-value,
+div.jsoneditor td,
+div.jsoneditor th,
+div.jsoneditor textarea,
+pre.jsoneditor-preview,
+.jsoneditor-schema-error,
+.jsoneditor-popover {
+  font-size: 16px;
+}
