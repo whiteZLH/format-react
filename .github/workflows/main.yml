@@ -1,0 +1,46 @@
+name: Build & Deploy Vite Dist
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install deps
+        run: npm install
+
+      - name: Build Vite
+        run: npm run build
+        # 默认输出 dist/
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_KEY_FORMAT }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Push dist to private repo
+        run: |
+          git clone git@github.com:whiteZLH/static-page.git dist-repo
+          rm -rf dist-repo/*
+          cp -r dist/* dist-repo/
+
+          cd dist-repo
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add .
+          git commit -m "chore: update dist" || echo "No changes"
+          git push
