@@ -75,17 +75,54 @@ function Format() {
     setDataStr(unescaped);
   };
 
+  const ConvertChineseToUnicode = () => {
+    const value = editorRef.current?.getValue();
+
+    const result = value.replace(/\\u[\dA-F]{4}/gi, (match: any) =>
+      String.fromCharCode(parseInt(match.replace("\\u", ""), 16))
+    );
+    setDataStr(result);
+  };
+
+  const toUnicode = () => {
+    const value = editorRef.current?.getValue();
+
+    const result = value
+      .split("")
+      .map((char: any) => {
+        const code = char.charCodeAt(0);
+        // 仅转换中文（Unicode 范围：\u4e00-\u9fff）
+        if (code >= 0x4e00 && code <= 0x9fff) {
+          return "\\u" + code.toString(16).padStart(4, "0");
+        }
+        return char; // 非中文字符保持原样
+      })
+      .join("");
+
+    setDataStr(result);
+  };
+
+  const compress = () => {
+    const value = editorRef.current?.getValue();
+    if (!value) return;
+    try {
+      const parsed = JSON.parse(value);
+      setDataStr(JSON.stringify(parsed));
+    } catch (e) {
+      console.error("Invalid JSON for compression");
+    }
+  };
   return (
     <>
       <div className="h-svh w-screen min-w-96 flex flex-col bg-gray-100">
         <header className="w-full h-16 bg-white shadow flex items-center justify-between px-8">
-          <div className="text-2xl font-bold text-gray-800">Format</div>
+          <div className="text-2xl font-bold text-gray-800">ZJson</div>
           <div className="space-x-6">
-            <button className="text-gray-600 hover:text-blue-500">Home</button>
+            {/* <button className="text-gray-600 hover:text-blue-500">Home</button>
             <button className="text-gray-600 hover:text-blue-500">About</button>
             <button className="text-gray-600 hover:text-blue-500">
               Contact
-            </button>
+            </button> */}
           </div>
         </header>
         <main className="flex-1 px-8 mt-3 overflow-auto bg-gray-100">
@@ -107,7 +144,19 @@ function Format() {
               <Button plain hairline color="#42B983" onClick={removeEscape}>
                 去除转义
               </Button>
-              <Button plain hairline color="#42B983">
+
+              <Button plain hairline color="#42B983" onClick={toUnicode}>
+                中文转 Unicode
+              </Button>
+              <Button
+                plain
+                hairline
+                color="#42B983"
+                onClick={ConvertChineseToUnicode}
+              >
+                Unicode 转中文
+              </Button>
+              <Button plain hairline color="#42B983" onClick={compress}>
                 压缩
               </Button>
             </div>

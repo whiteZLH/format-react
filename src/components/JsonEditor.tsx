@@ -22,6 +22,7 @@ const CustomJsonEditor: React.FC<Props> = ({
   useEffect(() => {
     if (editorRef.current) {
       editorRef.current.jsonEditor.update(value);
+      editorRef.current.jsonEditor.expandAll();
     }
   }, [value]);
 
@@ -36,6 +37,8 @@ const CustomJsonEditor: React.FC<Props> = ({
           navigationBar={true}
           statusBar={false}
           onChange={onChange}
+          enableSort={false}
+          enableTransform={false}
         />
       </div>
     </>

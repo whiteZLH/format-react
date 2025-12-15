@@ -1,14 +1,17 @@
 import { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
-const Home = lazy(() => import("./pages/Home"));
-const Format = lazy(() => import("./pages/Format"));
+import { Route, Routes, Navigate } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+
+const UniversalFormatter = lazy(() => import("./pages/UniversalFormatter"));
 
 const AppRouter = () => {
   return (
-    <Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/format" element={<Format />} />
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Navigate to="/format/json" replace />} />
+          <Route path="/format/:lang" element={<UniversalFormatter />} />
+        </Route>
       </Routes>
     </Suspense>
   );

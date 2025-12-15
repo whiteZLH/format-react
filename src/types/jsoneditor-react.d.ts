@@ -8,6 +8,8 @@ declare module "jsoneditor-react" {
     mainMenuBar?: boolean;
     navigationBar?: boolean;
     statusBar?: boolean;
+    enableSort: boolean;
+    enableTransform: boolean;
   }
   export class JsonEditor extends React.Component<JsonEditorProps> {
     jsonEditor: any;

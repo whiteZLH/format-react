@@ -107,10 +107,11 @@ const MonacoEditor = forwardRef(
             defaultLanguage={language}
             value={data}
             options={{
+              minimap: { enabled: false },
               fontSize: 18, // 设置字体大小
               contextmenu: false, // 禁止右键菜单
             }}
-            theme="light"
+            theme="vs-dark"
             onValidate={handleEditorValidation}
             onMount={onEditorMount}
             onChange={onChange}
