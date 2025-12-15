@@ -175,7 +175,7 @@ function Format() {
               <div className="editor  w-2/5">
                 <div className="p-6">
                   <CustomJsonEditor
-                    className="h-fit"
+                    className="h-fit bg-white"
                     value={data}
                     onChange={onJsonEditorChange}
                   />

@@ -10,12 +10,15 @@
 
 /* 改变树形视图背景 */
 .jsoneditor-tree {
-  background-color: #f8f9fa;
+  background-color: transparent;
   font-size: 16px;
   border-radius: 0.3rem;
   font-family: "Courier New", Courier, monospace;
 }
-
+/*  标题栏 【请选择一个节点】 */
+.jsoneditor-navigation-bar {
+  background-color: transparent;
+}
 .jsoneditor-treepath .jsoneditor-treepath-element {
   font-size: 14px;
 }
@@ -36,7 +39,7 @@ tr.jsoneditor-selected {
 }
 
 .jsoneditor-outer.has-nav-bar {
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .jsoneditor-tree-inner .jsoneditor-tree {

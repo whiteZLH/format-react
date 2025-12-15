@@ -250,7 +250,7 @@ const UniversalFormatter = () => {
                 <span>Visual Editor</span>
               </div>
             </div>
-            <div className="flex-1 rounded-xl border border-border overflow-hidden shadow-sm bg-card p-0 rounded-l-none border-l-0">
+            <div className="flex-1 rounded-xl border border-border overflow-hidden shadow-sm bg-white bg-noise p-0 rounded-l-none border-l-0">
               <CustomJsonEditor
                 className="h-full border-none"
                 value={jsonData}

@@ -28,7 +28,7 @@ const CustomJsonEditor: React.FC<Props> = ({
 
   return (
     <>
-      <div className={`rounded-xl border p-4 shadow bg-white ${className}`}>
+      <div className={`rounded-xl border p-4 shadow ${className}`}>
         <JsonEditor
           ref={editorRef}
           value={value}

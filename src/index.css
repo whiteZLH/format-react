@@ -121,3 +121,24 @@
 .jsoneditor-tree tr.jsoneditor-highlight td .jsoneditor-value {
   background-color: var(--muted) !important;
 }
+
+.bg-noise {
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(0, 0, 0, 0.08) 2px,
+      transparent 2px
+    ),
+    radial-gradient(circle at 70% 60%, rgba(0, 0, 0, 0.05) 2px, transparent 2px),
+    #ffffff;
+  background-size: 30px 30px;
+}
+
+.bg-noise .jsoneditor,
+.bg-noise .jsoneditor-menu,
+.bg-noise .jsoneditor-tree,
+.bg-noise .jsoneditor-tree tr,
+.bg-noise .jsoneditor-tree tr td,
+.bg-noise .jsoneditor-tree tr td .jsoneditor-field,
+.bg-noise .jsoneditor-tree tr td .jsoneditor-value {
+  background-color: transparent !important;
+}

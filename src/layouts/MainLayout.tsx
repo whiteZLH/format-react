@@ -1,4 +1,4 @@
-import { Outlet, NavLink, useLocation } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import {
   Braces,
   FileJson,
@@ -10,8 +10,6 @@ import {
 import { cn } from "../lib/utils";
 
 const MainLayout = () => {
-  const location = useLocation();
-
   // Mapping of language IDs to Icons
   const navItems = [
     { id: "json", name: "JSON", icon: FileJson, path: "/format/json" },
