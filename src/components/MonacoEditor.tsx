@@ -1,6 +1,6 @@
 import { Editor, type Monaco } from "@monaco-editor/react";
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
-import { editor } from "monaco-editor";
+import type { editor } from "monaco-editor";
 
 type OnChange = (
   value: string | undefined,
@@ -48,12 +48,12 @@ const MonacoEditor = forwardRef(
       monacoRef.current = monaco;
 
       // 禁用 F1
-      editor.addCommand(monaco.KeyCode.F1, () => {});
+      editor.addCommand(monaco.KeyCode.F1, () => { });
 
       // 禁用 Ctrl/Cmd + Shift + P
       editor.addCommand(
         monaco.KeyMod.CtrlCmd | monaco.KeyMod.Shift | monaco.KeyCode.KeyP,
-        () => {}
+        () => { }
       );
     };
 

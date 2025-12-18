@@ -42,6 +42,27 @@ tr.jsoneditor-selected {
   background-color: transparent;
 }
 
+/* fix 修复右侧不滚动bug */
+.jsoneditor {
+  display: flex !important;
+  flex-direction: column;
+  height: 100% !important;
+}
+
+.jsoneditor-menu {
+  flex: 0 0 auto;
+}
+
+.jsoneditor-outer {
+  flex: 1 1 auto;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.CustomJsonEditor>div {
+  height: 100%;
+}
+
 .jsoneditor-tree-inner .jsoneditor-tree {
   background-color: #fff;
 }
@@ -73,6 +94,7 @@ pre.jsoneditor-preview,
 .jsoneditor-contextmenu .jsoneditor-icon {
   background-size: 24px 24px;
 }
+
 /*  类型图标 */
 .jsoneditor-contextmenu button.jsoneditor-type-auto .jsoneditor-icon {
   background-image: url("../svg/type.svg");
@@ -107,6 +129,7 @@ pre.jsoneditor-preview,
 .jsoneditor-contextmenu button.jsoneditor-duplicate .jsoneditor-icon {
   background-image: url("../svg/copy.svg");
 }
+
 /* 追加 */
 .jsoneditor-contextmenu button.jsoneditor-remove .jsoneditor-icon {
   background-image: url("../svg/deleted.svg");
@@ -114,8 +137,10 @@ pre.jsoneditor-preview,
 
 .jsoneditor-contextmenu button.jsoneditor-extract .jsoneditor-icon {
   background-image: url("../svg/extract.svg");
-  transform: rotate(270deg); /* 设置旋转角度 */
+  transform: rotate(270deg);
+  /* 设置旋转角度 */
 }
+
 /* .jsoneditor-contextmenu .jsoneditor-menu li button.jsoneditor-selected,
 .jsoneditor-contextmenu .jsoneditor-menu li button.jsoneditor-selected:hover,
 .jsoneditor-contextmenu .jsoneditor-menu li button.jsoneditor-selected:focus {
@@ -129,7 +154,8 @@ pre.jsoneditor-preview,
 .jsoneditor-contextmenu .jsoneditor-menu button:hover,
 .jsoneditor-contextmenu .jsoneditor-menu button:focus {
   border-radius: 0.3rem;
-  background-color: #16a34a; /* Emerald 600 */
+  background-color: #16a34a;
+  /* Emerald 600 */
   color: #ffffff;
 }
 
