@@ -113,13 +113,16 @@ const UniversalFormatter = () => {
   }
 
   const handleEditorChange = (value: string | undefined) => {
-    if (!value) {
+    const nextValue = value ?? "";
+    setDataStr(nextValue);
+
+    if (!nextValue) {
       setJsonData("");
       return;
     }
     if (strategy.id === "json") {
       try {
-        const parsed = JSON.parse(value);
+        const parsed = JSON.parse(nextValue);
         setJsonData(parsed);
       } catch (e) {
         // ignore

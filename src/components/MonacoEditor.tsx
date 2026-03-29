@@ -102,9 +102,10 @@ const MonacoEditor = forwardRef(
         </style>
         <div className="w-full h-full">
           <Editor
+            key={language}
             height="100%"
             width="100%"
-            defaultLanguage={language}
+            language={language}
             value={data}
             options={{
               minimap: { enabled: false },

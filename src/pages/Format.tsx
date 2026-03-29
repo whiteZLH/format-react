@@ -14,12 +14,15 @@ function Format() {
   const [data, setData] = useState<any>(JSON.parse(initValue));
 
   const onEditorChange = (value: string | undefined) => {
-    if (!value) {
+    const nextValue = value ?? "";
+    setDataStr(nextValue);
+
+    if (!nextValue) {
       setData("");
       return;
     }
     try {
-      const data = JSON.parse(value);
+      const data = JSON.parse(nextValue);
       // 合法的 json，同步到 CustomJsonEditor 中进行展示
       setData(data);
     } catch (e) {}
